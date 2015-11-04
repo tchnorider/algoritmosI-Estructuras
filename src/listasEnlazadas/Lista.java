@@ -171,6 +171,23 @@ public class Lista implements ILista {
 		}
 	}
 
+	public int[] retornarInversoREC(NodoLista l, int cont) {
+		int[] result = new int[this.size()];
+		if (l != null) {
+			retornarInversoREC(l.getSig(), cont++);
+			result[cont] = l.getDato();
+		}
+		return result;
+	}
+
+	private int size() {
+		int res = 0;
+		while (this.getInicio().getSig() != null) {
+			res++;
+		}
+		return res;
+	}
+
 	@Override
 	public boolean existeDatoREC(NodoLista l, int n) {
 		if (l != null) {
